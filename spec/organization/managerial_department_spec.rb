@@ -26,6 +26,14 @@ describe Organization::ManagerialDepartment do
       sub_department3 = build(:procurment_department, inventory: 500)
       department = build(:managerial_department, sub_departments: [sub_department1, sub_department2, sub_department3])
       expect(department.inventory).to eq(1500.0)
+    end
+
+    it "should return average inventory for its sub departments" do
+      sub_department1 = build(:procurment_department, inventory: 500)
+      sub_department2 = build(:procurment_department, inventory: 500)
+      sub_department3 = build(:procurment_department, inventory: 500)
+      department = build(:managerial_department, sub_departments: [sub_department1, sub_department2, sub_department3])
+      expect(department.average_inventory).to eq(500.0)
     end 
   end   
 end

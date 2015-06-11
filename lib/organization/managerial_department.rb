@@ -16,5 +16,10 @@ class Organization::ManagerialDepartment < Organization::Department
 		@sub_departments.inject(0) do |sum, dept| 
 			sum + dept.inventory
 		end
-	end 
+	end
+
+	def average_inventory
+		sub_department_count = @sub_departments.length
+		inventory/sub_department_count
+	end
 end
