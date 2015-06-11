@@ -37,5 +37,26 @@ describe Organization::ManagerialDepartment do
       department = build(:managerial_department, sub_departments: [sub_department1, sub_department2, sub_department3])
       expect(department.average_inventory).to eq(500.0)
     end 
-  end   
+
+    it "should return sum of inventory for black category" do
+      sub_department1 = build(:procurment_department, inventory: 500, category:"blue")
+      sub_department2 = build(:procurment_department, inventory: 500, category:"black")
+      sub_department3 = build(:procurment_department, inventory: 600, category:"black")
+      department = build(:managerial_department, sub_departments: [sub_department1, sub_department2, sub_department3])
+      expect(department.total_inventory_by_category("black")).to eq(1100)
+    end
+
+    it "should return sum of inventory for black category for multi level" do
+      sub_department1 = build(:procurment_department, inventory: 500, category:"blue")
+      sub_department2 = build(:procurment_department, inventory: 500, category:"black")
+      sub_department3 = build(:procurment_department, inventory: 600, category:"black")
+      department1 = build(:managerial_department, sub_departments: [sub_department1, sub_department2, sub_department3])
+      sub_department4 = build(:procurment_department, inventory: 700, category:"black")
+      department2 = build(:managerial_department, sub_departments: [sub_department4])
+      department = build(:managerial_department, sub_departments: [department1, department2])
+      expect(department.total_inventory_by_category("black")).to eq(1800)
+    end
+
+  end  
+
 end

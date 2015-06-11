@@ -9,9 +9,18 @@ describe Organization::ProcurementDepartment  do
 	end
 
   context "Inventory" do
-    it "the Procurement Department with inventory 4000 should return average_inventory 50000" do
+    it "the Procurement Department with inventory 4000 should return average_inventory 4000" do
        t_shirts_department = build(:procurment_department, inventory:4000) 
       expect(t_shirts_department.average_inventory).to eq(4000)
     end
+    it "the Procurement Department with inventory 4000 and category black should return average_inventory 4000" do
+       t_shirts_department = build(:procurment_department, inventory:4000 , category:"black") 
+      expect(t_shirts_department.total_inventory_by_category("black")).to eq(4000)
+    end
+    it "the Procurement Department with inventory 4000 and category black should return average_inventory 4000" do
+       t_shirts_department = build(:procurment_department, inventory:4000 , category:"blue") 
+      expect(t_shirts_department.total_inventory_by_category("black")).to eq(0)
+    end
   end
+
 end

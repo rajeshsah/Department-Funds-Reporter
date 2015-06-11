@@ -10,4 +10,9 @@ class Organization::ProcurementDepartment < Organization::Department
   def average_inventory
     @inventory
   end
+
+  def total_inventory_by_category(category)
+    return inventory if @category == category
+    return 0
+  end
 end
