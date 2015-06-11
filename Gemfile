@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
-gem "rake"
+gem "factory_girl"
 gem "rspec"
+gem "rake"
 gem "simplecov"

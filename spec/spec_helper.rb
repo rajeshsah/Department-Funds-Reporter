@@ -1,3 +1,8 @@
-require 'simplecov'
-SimpleCov.start
-require_relative '../lib/organization.rb'
+require_relative '../lib/organization'
+require 'factory_girl'
+
+FactoryGirl.find_definitions
+
+RSpec.configure do |config|
+  config.include FactoryGirl::Syntax::Methods
+end
