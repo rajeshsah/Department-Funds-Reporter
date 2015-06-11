@@ -6,4 +6,8 @@ class Organization::ProcurementDepartment < Organization::Department
 		@cash = funds
 		@inventory	= inventory_count
 	end
+
+  def average_inventory
+    @inventory
+  end
 end

@@ -19,7 +19,9 @@ describe Organization::ManagerialDepartment do
       department2 = build(:managerial_department, sub_departments: [sub_department1, sub_department2, sub_department3, department])
   		expect(department2.cash).to eq(150000.0)
   	end	
+  end
 
+  context 'Get inventory' do
     it "should return total inventory of a Department as a sum of inventory in each of it's sub departments" do
      sub_department1 = build(:procurment_department, inventory: 500)
       sub_department2 = build(:procurment_department, inventory: 500)
