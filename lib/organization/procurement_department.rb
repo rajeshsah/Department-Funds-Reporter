@@ -11,15 +11,13 @@ class Organization::ProcurementDepartment < Organization::Department
     @inventory
   end
 
-  def total_inventory_by_black(category)
-    return inventory if @category[:color] == "black"
+  def total_inventory_by_color(color)
+    return inventory if @category[:color] == color
     return 0
   end
 
-  def inventory_by_black_excuding_other_category(category_excluded)
-
-    excluded_array = category_excluded[:garment_subtype]
-    return 0 if excluded_array && excluded_array.include?(@category[:garment_subtype])
+  def inventory_of_black_clothes_excuding_tshirt_and_jeans
+    return 0 if ["tshirt","jeans"].include?(@category[:garment_subtype])
     if @category[:color] == "black" 
       return inventory 
     end

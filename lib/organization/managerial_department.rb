@@ -22,15 +22,15 @@ class Organization::ManagerialDepartment < Organization::Department
 		inventory/@sub_departments.length
 	end
 
-	 def total_inventory_by_black(category)
+	 def total_inventory_by_color(color)
     @sub_departments.inject(0) do |sum, dept| 
-			sum + dept.total_inventory_by_black(category)
+			sum + dept.total_inventory_by_color(color)
 		end
   end
 
-  def inventory_by_black_excuding_other_category(category_excluded)
-    @sub_departments.inject(0) do |sum, dept| 
-			sum + dept.inventory_by_black_excuding_other_category(category_excluded)
+  def inventory_of_black_clothes_excuding_tshirt_and_jeans
+  	@sub_departments.inject(0) do |sum, dept| 
+			sum + dept.inventory_of_black_clothes_excuding_tshirt_and_jeans
 		end
   end
 
