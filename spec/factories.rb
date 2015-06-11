@@ -4,7 +4,7 @@ FactoryGirl.define do
 		name "Default"
 		cash 50000
 		inventory 500
-		category "Default"
+		category {}
 		initialize_with { new( name, cash, inventory, category ) }
 	end
 

@@ -27,4 +27,5 @@ class Organization::ManagerialDepartment < Organization::Department
 			sum + dept.total_inventory_by_category(category)
 		end
   end
+
 end
