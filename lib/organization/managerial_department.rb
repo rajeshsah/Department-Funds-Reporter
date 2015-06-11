@@ -19,7 +19,6 @@ class Organization::ManagerialDepartment < Organization::Department
 	end
 
 	def average_inventory
-		sub_department_count = @sub_departments.length
-		inventory/sub_department_count
+		inventory/@sub_departments.length
 	end
 end
