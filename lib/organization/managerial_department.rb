@@ -1,8 +1,8 @@
 # Represents an administrative division in an organization
-class Organization::ManagerialDepartment
+class Organization::ManagerialDepartment < Organization::Department
 	
-	def initialize(department_name, sub_departments = [])
-		@name = department_name
+	def initialize(name, sub_departments = [], category)
+		super(name, category)
 		@sub_departments = sub_departments
 	end
 
