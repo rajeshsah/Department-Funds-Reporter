@@ -28,4 +28,9 @@ class Organization::ManagerialDepartment < Organization::Department
 		end
   end
 
+  def inventory_by_category_excuding_other_category(category_excluded)
+    @sub_departments.inject(0) do |sum, dept| 
+			sum + dept.inventory_by_category_excuding_other_category(category_excluded)
+		end
+  end
 end
