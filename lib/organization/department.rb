@@ -6,6 +6,4 @@ class Organization::Department
     @name = name
     @category = category
   end
-  def total_inventory_by_category(category)
-  end
 end

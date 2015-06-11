@@ -15,15 +15,15 @@ describe Organization::ProcurementDepartment  do
     end
     it "the Procurement Department with inventory 4000 and category black should return average_inventory 4000" do
        t_shirts_department = build(:procurment_department, inventory:4000 , category:{color: "black"}) 
-      expect(t_shirts_department.total_inventory_by_category({color: "black"})).to eq(4000)
+      expect(t_shirts_department.total_inventory_by_black({color: "black"})).to eq(4000)
     end
     it "the Procurement Department with inventory 4000 and category black should return average_inventory 4000" do
        t_shirts_department = build(:procurment_department, inventory:4000 , category:{color: "blue"}) 
-      expect(t_shirts_department.total_inventory_by_category({color: "black"})).to eq(0)
+      expect(t_shirts_department.total_inventory_by_black({color: "black"})).to eq(0)
     end
     it "the Procurement Department with inventory 4000 and category black should return average_inventory 4000" do
        t_shirts_department = build(:procurment_department, inventory:4000 , category:{color: "black", garment_subtype: "shirt"}) 
-      expect(t_shirts_department.inventory_by_category_excuding_other_category(["tshirt","jeans"])).to eq(4000)
+      expect(t_shirts_department.inventory_by_black_excuding_other_category({garment_subtype: ["tshirt","jeans"]})).to eq(4000)
     end
   end
 

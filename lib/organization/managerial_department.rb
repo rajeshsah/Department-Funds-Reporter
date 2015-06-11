@@ -22,15 +22,16 @@ class Organization::ManagerialDepartment < Organization::Department
 		inventory/@sub_departments.length
 	end
 
-	 def total_inventory_by_category(category)
+	 def total_inventory_by_black(category)
     @sub_departments.inject(0) do |sum, dept| 
-			sum + dept.total_inventory_by_category(category)
+			sum + dept.total_inventory_by_black(category)
 		end
   end
 
-  def inventory_by_category_excuding_other_category(category_excluded)
+  def inventory_by_black_excuding_other_category(category_excluded)
     @sub_departments.inject(0) do |sum, dept| 
-			sum + dept.inventory_by_category_excuding_other_category(category_excluded)
+			sum + dept.inventory_by_black_excuding_other_category(category_excluded)
 		end
   end
+
 end
